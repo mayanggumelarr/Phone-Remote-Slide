@@ -3,16 +3,59 @@ import pyautogui
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return """
+    <html>
+    <head>
+    <title>Slide Remote</title>
+    <style>
+        body{
+            background:#111;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
+            font-family:Arial;
+        }
+
+        button{
+            width:80%;
+            height:120px;
+            font-size:40px;
+            margin:20px;
+            border:none;
+            border-radius:20px;
+            color:white;
+        }
+
+        .next{
+            background:#28a745;
+        }
+
+        .prev{
+            background:#dc3545;
+        }
+    </style>
+    </head>
+
+    <body>
+        <button class="next" onclick="fetch('/next')">NEXT ▶</button>
+        <button class="prev" onclick="fetch('/prev')">◀ PREV</button>
+    </body>
+    </html>
+    """
+
 @app.route("/next")
 def next_slide():
-    print("NEXT SLIDE")
     pyautogui.press("right")
-    return "Next Slide"
+    return "OK"
 
 @app.route("/prev")
 def prev_slide():
-    print("PREV SLIDE")
     pyautogui.press("left")
-    return "Previous Slide"
+    return "OK"
 
 app.run(host="0.0.0.0", port=5000)
