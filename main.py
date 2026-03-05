@@ -38,6 +38,10 @@ def home():
         .prev{
             background:#dc3545;
         }
+
+        .exit{
+            background:#8A7650;
+        }
     </style>
     </head>
 
