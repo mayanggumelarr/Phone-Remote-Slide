@@ -44,6 +44,7 @@ def home():
     <body>
         <button class="next" onclick="fetch('/next')">NEXT ▶</button>
         <button class="prev" onclick="fetch('/prev')">◀ PREV</button>
+        <button class="exit" onclick="fetch('/exit')">EXIT</button>
     </body>
     </html>
     """
@@ -57,5 +58,10 @@ def next_slide():
 def prev_slide():
     pyautogui.press("left")
     return "OK"
+
+@app.route("/exit")
+def exit_slide():
+    pyautogui.press("esc")
+    return "EXIT"
 
 app.run(host="0.0.0.0", port=5000)
