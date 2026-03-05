@@ -40,7 +40,7 @@ def home():
         }
 
         .exit{
-            background:#8A7650;
+            background:#8a7650;
         }
     </style>
     </head>
